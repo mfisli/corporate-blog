@@ -1,3 +1,4 @@
+'use strict';
 function log(msg){
     console.log(msg); 
 }
@@ -13,10 +14,10 @@ function makeBlog(obj){
 function processJSON(obj){
     var blogArray = []; 
     for( var i = 0; i < obj.length; i++){
-        name = obj[i].username;
-        city = obj[i].address.city;
-        subject = obj[i].company.catchPhrase;
-        body = obj[i].company.bs;
+        var name = obj[i].username;
+        var city = obj[i].address.city;
+        var subject = obj[i].company.catchPhrase;
+        var body = obj[i].company.bs;
         blogArray.push(new Blog(name,city,subject,body));
     }
     return blogArray;
