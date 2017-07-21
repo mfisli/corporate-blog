@@ -14,17 +14,17 @@ function makeBlog(obj){
 function processJSON(obj){
     var blogArray = []; 
     for( var i = 0; i < obj.length; i++){
-        var name = obj[i].username;
-        var city = obj[i].address.city;
-        var subject = obj[i].company.catchPhrase;
-        var body = obj[i].company.bs;
+        let name = obj[i].username;
+        let city = obj[i].address.city;
+        let subject = obj[i].company.catchPhrase;
+        let body = obj[i].company.bs;
         blogArray.push(new Blog(name,city,subject,body));
     }
     return blogArray;
 }
 function buildHTML(obj){
     log(obj); 
-    var blogHTML = document.getElementById("blog");
+    let blogHTML = document.getElementById("blog");
     blogHTML.innerHTML = ""; 
     for(var i = 0; i < obj.length; i++){
         blogHTML.innerHTML += 
@@ -37,8 +37,8 @@ function getBlogData() {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            var rawPayload = this.responseText;
-            var jsonObj = JSON.parse(rawPayload);
+            let rawPayload = this.responseText;
+            let jsonObj = JSON.parse(rawPayload);
             var blogArray = processJSON(jsonObj);
             buildHTML(blogArray);
         }
