@@ -27,6 +27,7 @@ function buildPostsHTML(posts){
         blogHTML.innerHTML += 
         "<div class='post'>" +
          "<h4 class='post-title'>" + posts[i].title + "<br /></h4>" + 
+         "<div class='post-meta'>" + "user name" + " | " + "Jul 25, 2017" + "<br/>" + 
          "<p class='post-body'>" +  posts[i].body + "</p>" + 
         "</div>"; 
     }

@@ -1,8 +1,11 @@
 .post-body {
-    color: #394248;
+    color: #71777C;
     margin-bottom: 2em;
 }
 .post-title {
-    color: #71777C;
+    color: #394248;
     text-transform: capitalize;
+}
+.post-meta{
+    color: #71777C;
 }
