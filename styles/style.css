@@ -1,3 +1,8 @@
-p {
-    color: blue;
+.post-body {
+    color: #394248;
+    margin-bottom: 2em;
+}
+.post-title {
+    color: #71777C;
+    text-transform: capitalize;
 }
