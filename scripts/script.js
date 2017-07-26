@@ -1,18 +1,14 @@
+// TODO:
+// Get users displayed on about page
+// Search function for contact us page
+// Apply pagination to posts on home page
+
 'use strict';
 function log(msg,obj){
     console.log(msg); 
     if(obj){
         console.log(obj);
     }
-}
-function Blog(userName,city,subject,body){
-    this.userName = userName;
-    this.city = city;
-    this.subject = subject;
-    this.body = body;
-}
-function makeBlog(obj){
-    return new Blog(obj.userName, obj.city, obj.subject, obj.body); 
 }
 function buildPostsHTML(posts){
     if(posts){
@@ -21,10 +17,10 @@ function buildPostsHTML(posts){
         log("ERROR! Posts are empty.");
         return;
     }
-    var blogHTML = document.getElementById("posts");
-    blogHTML.innerHTML = ""; 
+    var postsHTML = document.getElementById("posts");
+    postsHTML.innerHTML = ""; 
     for(var i = 0; i < posts.length; i++){
-        blogHTML.innerHTML += 
+        postsHTML.innerHTML += 
         "<div class='post'>" +
          "<h4 class='post-title'>" + posts[i].title + "<br /></h4>" + 
          "<div class='post-meta'>" + "user name" + " | " + "Jul 25, 2017" + "<br/>" + 
@@ -35,11 +31,11 @@ function buildPostsHTML(posts){
 function getPosts() {
     var posts = document.getElementById("posts")
     if(!posts){
+        log("ERROR: No Posts element found!");
         return;
     }
     posts.innerHTML = "Loading Posts ...";
     log("Getting Posts ...");
-
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if(this.readyState == 4 && this.status == 200){
@@ -52,17 +48,43 @@ function getPosts() {
     xhttp.open("GET", "https://jsonplaceholder.typicode.com/posts", true);
     xhttp.send();
 }
-function loadBlog(){
-    //getUsers();  
-    getPosts();
+function buildStaffHTML(obj){
+    if(obj){
+        log("Building HTML with " + obj.length + " staff(s)."); 
+    } else {
+        log("ERROR! Staff is empty.");
+        return;
+    }
+    var staffHTML = document.getElementById("staff");
+    staffHTML.innerHTML = ""; 
+    for(var i = 0; i < obj.length; i++){
+        staffHTML.innerHTML += 
+        "<div class='employee'>" +
+         "<h4 class='employee-name'>" + obj[i].name + "<br /></h4>" +  
+         "<p class='employee-body'>" +  obj[i].email + "</p>" + 
+        "</div>"; 
+    }
+
 }
-// TODO:
-// Get users displayed on about page
-// Apply pagination to posts on home page
-window.onload = function () {
-    log("start"); 
-    loadBlog();
+function getEmployees(){
+    var staff = document.getElementById("staff");
+    if (!staff){
+        log("ERROR! No staff element.");
+        return;
+    }
+    log("Getting employees ...");
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status == 200){
+            log("Got employees");
+            let jsonObj = JSON.parse(this.responseText);
+            buildStaffHTML(jsonObj);
+        }
+    }
+    xhttp.open("GET", "https://jsonplaceholder.typicode.com/users", true);
+    xhttp.send(); 
 }
+
 /*
 function getUsers() { // this would be cleaner with jQuery when().then()
     log("Getting Users ...");

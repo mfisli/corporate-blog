@@ -1,4 +1,4 @@
-.post-body {
+.post-body, .employee-body {
     color: #71777C;
     margin-bottom: 2em;
 }
@@ -8,6 +8,16 @@
 }
 .post-meta{
     color: #71777C;
+}
+.post, .employee {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+.title {
+    margin-left: 5%;
+}
+.copy-right{
+    margin-left: 5%;
 }
 
 
