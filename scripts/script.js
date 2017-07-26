@@ -33,8 +33,13 @@ function buildPostsHTML(posts){
     }
 }
 function getPosts() {
+    var posts = document.getElementById("posts")
+    if(!posts){
+        return;
+    }
+    posts.innerHTML = "Loading Posts ...";
     log("Getting Posts ...");
-    document.getElementById("posts").innerHTML = "Loading Posts ...";
+
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if(this.readyState == 4 && this.status == 200){
@@ -51,6 +56,9 @@ function loadBlog(){
     //getUsers();  
     getPosts();
 }
+// TODO:
+// Get users displayed on about page
+// Apply pagination to posts on home page
 window.onload = function () {
     log("start"); 
     loadBlog();
