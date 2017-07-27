@@ -1,7 +1,7 @@
 .title {
     margin-left: 5%;
 }
-.post-body, {
+.post-body, .about-us-body {
     color: #71777C;
     margin-bottom: 2em;
 }
@@ -23,7 +23,7 @@ p.employee-catch-phrase:before, p.employee-catch-phrase:after {
 .post-meta{
     color: #71777C;
 }
-.post, .employee {
+.post, .employee, .about-us-body {
     margin-left: 10%;
     margin-right: 10%;
 }

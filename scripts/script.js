@@ -55,14 +55,16 @@ function buildStaffHTML(obj){
         log("ERROR! Staff is empty.");
         return;
     }
+    // TODO replace hard-coded keys 
     var staffHTML = document.getElementById("staff");
     staffHTML.innerHTML = ""; 
     for(var i = 0; i < obj.length; i++){
         staffHTML.innerHTML += 
         "<div class='employee'>" +
+         "<img src='http://via.placeholder.com/150x150' alt=\'" + obj[i].name + " photo\'/>" + 
          "<h4 class='employee-name'>" + obj[i].name + "<br /></h4>" +  
-         "<p class='employee-email'>" +  obj[i].email + "</p>" +
-         "<p class='employee-phone'>" +  obj[i].phone + "</p>" +
+         "<p class='employee-email'> Email: " +  obj[i].email + "</p>" +
+         "<p class='employee-phone'> Phone: " +  obj[i].phone + "</p>" +
          "<p class='employee-catch-phrase'>" + obj[i].company.catchPhrase + "</p>" + 
         "</div>"; 
     }
@@ -75,6 +77,7 @@ function getEmployees(){
         return;
     }
     log("Getting employees ...");
+    staff.innerHTML = "Loading Staff ...";
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function(){
         if(this.readyState == 4 && this.status == 200){
@@ -86,8 +89,43 @@ function getEmployees(){
     xhttp.open("GET", "https://jsonplaceholder.typicode.com/users", true);
     xhttp.send(); 
 } 
+function buildAboutUsHTML(obj){
+    if(!obj){
+        log("ERROR! Staff is empty.");
+        return;
+    }
+    log("Building About Us HTML"); 
+    var aboutUsHTML = document.getElementById("about-us");
+    aboutUsHTML.innerHTML = "";
+    var html = "";
+
+    html += "<div class='about-us-body'>";
+    for (let item of obj) {
+            html +="<p>" + item + "</p>";
+    }
+    html += "</div>"; 
+    aboutUsHTML.innerHTML = html;
+
+}
 function getAboutUs(){
+    var aboutUs = document.getElementById("about-us");
+    if (!aboutUs){
+        log("ERROR! Missing about-us-body element");
+        return;
+    } 
     log("Getting About Us ..."); 
+    aboutUs.innerHTML = "Loading About Us ...";
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if(this.readyState == 4 && this.status == 200){
+            log("Got About Us.");
+            let jsonObj = JSON.parse(this.responseText);
+            buildAboutUsHTML(jsonObj);
+        }
+    }
+    xhttp.open("Get", "https://baconipsum.com/api/?type=meat-and-filler&paras=3", true);
+    xhttp.send(); 
+
 }
 
 /*
