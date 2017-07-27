@@ -1,6 +1,20 @@
-.post-body, .employee-body {
+.title {
+    margin-left: 5%;
+}
+.post-body, {
     color: #71777C;
     margin-bottom: 2em;
+}
+.employee-email, .employee-phone, .employee-catch-phrase {
+        color: #71777C;
+}
+.employee-catch-phrase {
+    font-style: italic;
+}
+p.employee-catch-phrase:before, p.employee-catch-phrase:after {
+    content: '"';
+    color: #71777C;
+    font-style: italic;
 }
 .post-title {
     color: #394248;
@@ -12,9 +26,6 @@
 .post, .employee {
     margin-left: 10%;
     margin-right: 10%;
-}
-.title {
-    margin-left: 5%;
 }
 .copy-right{
     margin-left: 5%;

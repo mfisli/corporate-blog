@@ -61,7 +61,9 @@ function buildStaffHTML(obj){
         staffHTML.innerHTML += 
         "<div class='employee'>" +
          "<h4 class='employee-name'>" + obj[i].name + "<br /></h4>" +  
-         "<p class='employee-body'>" +  obj[i].email + "</p>" + 
+         "<p class='employee-email'>" +  obj[i].email + "</p>" +
+         "<p class='employee-phone'>" +  obj[i].phone + "</p>" +
+         "<p class='employee-catch-phrase'>" + obj[i].company.catchPhrase + "</p>" + 
         "</div>"; 
     }
 
@@ -83,6 +85,9 @@ function getEmployees(){
     }
     xhttp.open("GET", "https://jsonplaceholder.typicode.com/users", true);
     xhttp.send(); 
+} 
+function getAboutUs(){
+    log("Getting About Us ..."); 
 }
 
 /*
