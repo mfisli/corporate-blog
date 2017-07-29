@@ -1,12 +1,12 @@
 .title {
     margin-left: 5%;
 }
-.post-body, .about-us-body {
+.post-body, .about-us-body, .search-wrapper{
     color: #71777C;
     margin-bottom: 2em;
 }
 .employee-email, .employee-phone, .employee-catch-phrase {
-        color: #71777C;
+    color: #71777C;
 }
 .employee-catch-phrase {
     font-style: italic;
@@ -23,7 +23,7 @@ p.employee-catch-phrase:before, p.employee-catch-phrase:after {
 .post-meta{
     color: #71777C;
 }
-.post, .employee, .about-us-body {
+.post, .employee, .about-us-body, .search-wrapper{
     margin-left: 10%;
     margin-right: 10%;
 }
