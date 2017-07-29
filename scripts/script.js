@@ -1,7 +1,16 @@
-// TODO:
-// Responsive layout on contract us
-// Search function on contract us
-// Pagination on posts on home page
+// >> TODO <<
+// Contact Us:
+//  Responsive layout
+//  Include names that are close to search keyword
+//  Display staff sorted by last name 
+// Posts / Home page: 
+//  Pagination on posts on home page
+//  Add placeholder images with each post
+//  Add favicon
+// About Us:
+//  Add placeholder banner 
+// Nice to have: 
+//  jQ UI animations
 
 'use strict';
 var staff = {
