@@ -69,7 +69,8 @@ function buildStaffHTML(staffMembers){
     if(staffMembers.length != 0){
         log("Building HTML with " + staffMembers.length + " employees(s)."); 
     } else {
-        log("ERROR! Staff is empty.");
+        log("Staff is empty.");
+        staffHTML.innerHTML += "<div class='employee'> No Matches. </div>"
         return;
     }
     // TODO replace hard-coded keys 
@@ -143,7 +144,7 @@ function getAboutUs(){
     xhttp.send(); 
 }
 function searchNames(){
-    var target = document.getElementById('name').value; 
+    var target = document.getElementById('name').value.toLowerCase();
     if (!target){
         log("No names given.");
         buildStaffHTML(staff.listings);
@@ -156,9 +157,8 @@ function searchNames(){
     log("Considering " + staff.listings.length + " Staff member(s).");
     var result = []; 
     for(let employee of staff.listings){
-        if (employee.name == target){
+        if (employee.name.toLowerCase().search(target) != -1){
             result.push(employee);
-            log("Added " + employee.name);
         }
     }
     buildStaffHTML(result);
