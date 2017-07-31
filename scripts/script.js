@@ -1,7 +1,6 @@
 // >> TODO <<
 // Contact Us:
 //  Responsive layout
-//  Include names that are close to search keyword
 //  Display staff sorted by last name 
 // Posts / Home page: 
 //  Pagination on posts on home page
@@ -76,14 +75,16 @@ function buildStaffHTML(staffMembers){
     // TODO replace hard-coded keys 
 
     for(var i = 0; i < staffMembers.length; i++){
-        staffHTML.innerHTML += 
+        var html = "";
+        html = 
         "<div class='employee'>" +
-         "<img src='http://via.placeholder.com/150x150' alt=\'" + staffMembers[i].name + " photo\'/>" + 
-         "<h4 class='employee-name'>" + staffMembers[i].name + "<br /></h4>" +  
-         "<p class='employee-email'> Email: " +  staffMembers[i].email + "</p>" +
-         "<p class='employee-phone'> Phone: " +  staffMembers[i].phone + "</p>" +
-         "<p class='employee-catch-phrase'>" + staffMembers[i].company.catchPhrase + "</p>" + 
-        "</div>"; 
+         "<img class='staff-photo' src='http://via.placeholder.com/150x150' alt=\'" + staffMembers[i].name + " photo\'/>" + 
+         "<h4 class='employee-name'>" + staffMembers[i].name + "</h4>" +  
+         "<div class='employee-email'> Email: " +  staffMembers[i].email + "</div>" +
+         "<div class='employee-phone'> Phone: " +  staffMembers[i].phone + "</div>" +
+         "<div class='employee-catch-phrase'>" + staffMembers[i].company.catchPhrase + "</div>" + 
+        "<br/></div>"; 
+        staffHTML.innerHTML += html;
     }
 
 }
@@ -122,7 +123,7 @@ function buildAboutUsHTML(obj){
     }
     html += "</div>"; 
     aboutUsHTML.innerHTML = html;
-
+    var div = document.getElementById ("about-us");
 }
 function getAboutUs(){
     var aboutUs = document.getElementById("about-us");
@@ -162,4 +163,20 @@ function searchNames(){
         }
     }
     buildStaffHTML(result);
+}
+window.onload = function() {
+    var body = document.getElementById("body-index");
+    if (body) { 
+        body.addEventListener("load", getPosts(), false);
+        return;
+    }
+    body = document.getElementById("body-about");
+    if (body){
+        body.addEventListener("load", getAboutUs(), false)
+        return;
+    }
+    body = document.getElementById("body-contact");
+    if (body) {
+        body.addEventListener("load", getEmployees(), false)
+    }
 }

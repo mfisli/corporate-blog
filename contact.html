@@ -20,7 +20,7 @@
     <link href="styles/style.css" rel="stylesheet" />
 </head>
 
-<body onload="getEmployees()">
+<body id="body-contact">
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -44,9 +44,9 @@
     <hr />
     <div class="search-wrapper">
         <form>
-            <p>Search</p>
+            <label for="name">Staff Search</label><br/>
             <input id="name" name="name" type="text" 
-            value="" onkeyup="searchNames()">
+                value="" placeholder="Search by name" onkeyup="searchNames()">
         </form>
     </div>
     <div id="staff"></div>

@@ -11,7 +11,7 @@
 .employee-catch-phrase {
     font-style: italic;
 }
-p.employee-catch-phrase:before, p.employee-catch-phrase:after {
+.employee-catch-phrase:before, .employee-catch-phrase:after {
     content: '"';
     color: #71777C;
     font-style: italic;
